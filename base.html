@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+  <header>
+     <div class="logo">
+        <img src="WhatsApp Image 2025-11-10 at 22.59.32_40b98bcd.jpg" alt="E-Library Hub Logo">
+     </div>
+  </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('HOME')">home</button>
+            <button class="tab-btn" onclick="openTab('SEARCH')">search</button>
+            <button class="tab-btn" onclick="openTab('NEW RELEASES')">new releases</button>
+            <button class="tab-btn" onclick="openTab('LANGUAGES')">languages</button>
+            <button class="tab-btn" onclick="openTab('MEMEBERS')">Members</button>
+            <button class="tab-btn" onclick="openTab('ISSUE/RETURN')">Issue/Return</button>
+
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Library Statistics</h2>
+            <div class="stats">
+                <div class="stat-card stat-primary">
+                    <h3 id="totalBooks">0</h3>
+                    <p>Total Books</p>
+                </div>
+                <div class="stat-card stat-success">
+                    <h3 id="availableBooks">0</h3>
+                    <p>Available Books</p>
+                </div>
+                <div class="stat-card stat-warning">
+                    <h3 id="issuedBooks">0</h3>
+                    <p>Issued Books</p>
+                </div>
+                <div class="stat-card stat-info">
+                    <h3 id="totalMembers">0</h3>
+                    <p>Total Members</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books Tab -->
+        <div id="books" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Book Catalog</h2>
+            <div class="search-box">
+                <input type="text" id="searchBook" placeholder="🔍 Search books by title, author, or genre..."
+                 onkeyup="searchBooks()">
+            </div>
+            <div class="books-grid" id="booksGrid"></div>
+        </div>
+
+        <!-- Add Book Tab -->
+        <div id="addBook" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Add New Book</h2>
+            <form onsubmit="addBook(event)">
+                <div class="form-group">
+                    <label>Book Title</label>
+                    <input type="text" id="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" id="bookAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label>Genre</label>
+                    <input type="text" id="bookGenre" required>
+                </div>
+                <div class="form-group">
+                    <label>ISBN</label>
+                    <input type="text" id="bookISBN" required>
+                </div>
+                <button type="submit" class="btn">Add Book</button>
+            </form>
+        </div>
+
+        <!-- Members Tab -->
+        <div id="members" class="tab-content">
+            <h2 style="margin-bottom: 20px; color: #1a1a2e;">Library Members</h2>
+            <form onsubmit="addMember(event)" style="margin-bottom: 30px;">
+                <div class="form-group">
+                    <label>Member Name</label>
+                    <input type="text" id="memberName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="memberEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="memberPhone" required>
+                </div>
+                <button type="submit" class="btn">Add Member</button>
+            </form>
+            <div class="members-list" id="membersList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>   
